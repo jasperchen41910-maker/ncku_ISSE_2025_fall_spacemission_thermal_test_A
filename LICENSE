@@ -19,4 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+說明:
 將micro usb接上teensy後，理論上可以直接執行rx_2packet2csv.py這個程式，因為我已經把
+flatsat_temp_test.ino燒進teensy，如果保險一點可以先執行flatsat_temp_test.ino,確認
+有收到數據。rx_2packet2csv.py這個程式是用來記錄實驗資料，會自動將實驗數據儲存成csv檔，
+現在是傳兩個不同頻率的封包，Header分別是Packet2s和Packet10s。
+封包說明:
+2s封包:
+
+操作順序:
+1.執行程式前python程式前，請先到裝置管理員確認Comport以及baud rate，並在程式中修改
+**2.務必關掉"所有"arduino IDE的程式，因為這樣python會跟arduino IDE搶訊號。
+3.執行程式
+4.實驗結束後關閉程式，兩個csv檔會存在logs的資料夾內
+
+
