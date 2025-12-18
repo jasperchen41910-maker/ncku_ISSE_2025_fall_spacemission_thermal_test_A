@@ -24,8 +24,12 @@ SOFTWARE.
 flatsat_temp_test.ino燒進teensy，如果保險一點可以先執行flatsat_temp_test.ino,確認
 有收到數據。rx_2packet2csv.py這個程式是用來記錄實驗資料，會自動將實驗數據儲存成csv檔，
 現在是傳兩個不同頻率的封包，Header分別是Packet2s和Packet10s。
+理論上兩個csv檔會存在一個logs資料夾內
+
 封包說明:
-2s封包:
+2s封包:Packet2s,Time,Lat,Lon,Alt,Sat,Speed,Pitch,Roll,Yaw,q0,q1,q2,q3,bx,by,bz,timer,TempC
+10封包:Packet10s,Time,Alt,CPM,uSvh,nSvh,counts,ADC0,ADC3,ADC4,ADC5,ADC6,ADCV
+如果只是要取溫度資料可以只取2s封包的最後兩個，timer是計時器，記錄從開始執行程式的秒數。
 
 操作順序:
 1.執行程式前python程式前，請先到裝置管理員確認Comport以及baud rate，並在程式中修改
