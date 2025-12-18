@@ -19,22 +19,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 說明:
-將micro usb接上teensy後，理論上可以直接執行rx_2packet2csv.py這個程式，因為我已經把
+1.將micro usb接上teensy後，理論上可以直接執行rx_2packet2csv.py這個程式，因為我已經把
 flatsat_temp_test.ino燒進teensy，如果保險一點可以先執行flatsat_temp_test.ino,確認
-有收到數據。rx_2packet2csv.py這個程式是用來記錄實驗資料，會自動將實驗數據儲存成csv檔，
-現在是傳兩個不同頻率的封包，Header分別是Packet2s和Packet10s。
-理論上兩個csv檔會存在一個logs資料夾內
+有收到數據。
+2.rx_2packet2csv.py這個程式是用來記錄實驗資料，會自動將實驗數據儲存成csv檔，目前是傳兩
+個不同頻率的封包，Header分別是Packet2s和Packet10s。
+3.理論上兩個csv檔會存在一個logs資料夾內,可以先在實驗開始前先執行一下程式，確認檔案儲存在哪裡。
 
 封包說明:
 2s封包:Packet2s,Time,Lat,Lon,Alt,Sat,Speed,Pitch,Roll,Yaw,q0,q1,q2,q3,bx,by,bz,timer,TempC
 10封包:Packet10s,Time,Alt,CPM,uSvh,nSvh,counts,ADC0,ADC3,ADC4,ADC5,ADC6,ADCV
-如果只是要取溫度資料可以只取2s封包的最後兩個，timer是計時器，記錄從開始執行程式的秒數。
+1.如果只要取溫度資料可以只看2s封包的最後兩個，timer是計時器，記錄從開始執行程式的秒數。
+2.儲存的csv檔前面也會加上PC time，因此也可以參考這個時間。
 
 操作順序:
 1.執行程式前python程式前，請先到裝置管理員確認Comport以及baud rate，並在程式中修改
 **2.務必關掉"所有"arduino IDE的程式，因為這樣python會跟arduino IDE搶訊號。
 3.執行程式
-4.實驗結束後關閉程式，兩個csv檔會存在logs的資料夾內
+4.確認python下方視窗有收到數據
+5.實驗結束後關閉程式，兩個csv檔會存在logs的資料夾內
 
-
+提醒:下載flatsat_thermal_test建議下載整個資料夾
